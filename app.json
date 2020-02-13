@@ -1,0 +1,33 @@
+{
+  "id": "cdc8d7d9-d218-4e9e-b439-8ef70541755c",
+  "name": "GRAExtension",
+  "publisher": "G.R. & Associates Inc.",
+  "brief": "",
+  "description": "Heliene Customization by GRA",
+  "version": "1.0.0.4",
+  "compatibilityId": "1.0.0.0",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "capabilities": [],
+  "dependencies": [
+    {
+      "appId": "bfb110ae-89e2-4237-9fae-e2a2e169cf58",
+      "name": "HelieneBaseExtension",
+      "publisher": "Sabre Limited",
+      "version": "0.1.1.33"
+    }
+  ],
+  "screenshots": [],
+  "platform": "11.0.0.0",
+  "application": "11.0.0.0",
+  "idRange": {
+    "from": 50000,
+    "to": 59200
+  },
+  "target": "Internal",
+  "showMyCode": true
+  
+}

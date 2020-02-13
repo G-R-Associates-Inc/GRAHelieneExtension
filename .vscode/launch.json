@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+			"type": "al",
+            "request": "launch",
+            /*Local*/
+            /*"name": "GRA-04",
+            "server": "http://localhost:8080/",
+            "port": 7054,
+            "serverInstance": "Heliene",
+            "authentication": "UserPassword",
+            "startupObjectId": 22*/
+            //"schemaUpdateMode": "Recreate"
+
+            /*Local Production*/
+            /*"name": "GRA-04",
+            "server": "http://localhost:8080/",
+            "port": 7059,
+            "serverInstance": "Heliene-Production",
+            "authentication": "UserPassword",
+            "startupObjectId": 22*/
+            //"debugServer": 4711
+            //"schemaUpdateMode": "Recreate"
+            
+            /*Heliene-QA*/
+            /*"name": "Your own server",
+            "server": "http://localhost/",
+            "port": 8149,
+            "serverInstance": "Heliene-QA",
+            "authentication": "Windows",
+            "startupObjectId": 22*/
+
+            /*Heliene-Production*/
+            "name": "Your own server",
+            "server": "http://localhost/",
+            "port": 8049,
+            "serverInstance": "Heliene-Production",
+            "authentication": "Windows",
+            "startupObjectId": 22
+            
+        },
+    ]
+}

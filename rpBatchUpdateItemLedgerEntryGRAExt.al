@@ -44,7 +44,8 @@ report 58003 BatchUpdateItemLedgerEntry
                     begin 
                         "Salesperson Code" := SalesShipment."Salesperson Code";
                         "External Document No." := SalesShipment."External Document No.";
-                        "Salesperson Name" := SalespersonPurchaser.Name;    
+                        //"Salesperson Name" := SalespersonPurchaser.Name; 
+                        "Salesperson Name" := SalesPersonName;   
                     end else
                     begin
                         SalesShipment.Reset;
@@ -57,8 +58,11 @@ report 58003 BatchUpdateItemLedgerEntry
                             begin 
                                 SalespersonPurchaser.Reset;
                                 if SalespersonPurchaser.Get("Salesperson Code") then
-                                    "Salesperson Name" := SalespersonPurchaser.Name;
-                            end;    
+                                    SalesPersonName := SalespersonPurchaser.Name
+                                else
+                                  SalesPersonName := '';
+                            end;
+                            "Salesperson Name" := SalesPersonName;    
                         end;
                     end;    
                 end else if "Document Type" = "Document Type"::"Sales Invoice" then
@@ -67,7 +71,8 @@ report 58003 BatchUpdateItemLedgerEntry
                     begin 
                         "Salesperson Code" := SalesInvoice."Salesperson Code";
                         "External Document No." := SalesInvoice."External Document No.";
-                        "Salesperson Name" := SalespersonPurchaser.Name;    
+                        //"Salesperson Name" := SalespersonPurchaser.Name;
+                        "Salesperson Name" := SalesPersonName;    
                     end else
                     begin 
                         SalesInvoice.Reset;
@@ -80,8 +85,11 @@ report 58003 BatchUpdateItemLedgerEntry
                             begin 
                                 SalespersonPurchaser.Reset;
                                 if SalespersonPurchaser.Get("Salesperson Code") then
-                                    "Salesperson Name" := SalespersonPurchaser.Name;
-                            end;        
+                                    SalesPersonName := SalespersonPurchaser.Name
+                                else
+                                  SalesPersonName := '';  
+                            end;
+                            "Salesperson Name" := SalesPersonName;        
                         end;
                     end;    
                 end else if "Document Type" = "Document Type"::"Sales Return Receipt" then
@@ -90,7 +98,8 @@ report 58003 BatchUpdateItemLedgerEntry
                     begin 
                         "Salesperson Code" := SalesReturnReceipt."Salesperson Code";
                         "External Document No." := SalesReturnReceipt."External Document No.";
-                        "Salesperson Name" := SalespersonPurchaser.Name;    
+                        //"Salesperson Name" := SalespersonPurchaser.Name;
+                        "Salesperson Name" := SalesPersonName;    
                     end else
                     begin
                         SalesReturnReceipt.Reset;
@@ -103,8 +112,11 @@ report 58003 BatchUpdateItemLedgerEntry
                             begin 
                                 SalespersonPurchaser.Reset;
                                 if SalespersonPurchaser.Get("Salesperson Code") then
-                                    "Salesperson Name" := SalespersonPurchaser.Name;
-                            end;    
+                                    SalesPersonName := SalespersonPurchaser.Name
+                                else
+                                  SalesPersonName := '';
+                            end;
+                            "Salesperson Name" := SalesPersonName;    
                         end; 
                     end;   
                 end else if "Document Type" = "Document Type"::"Sales Credit Memo" then
@@ -113,7 +125,8 @@ report 58003 BatchUpdateItemLedgerEntry
                     begin 
                         "Salesperson Code" := SalesCreditMemo."Salesperson Code";
                         "External Document No." := SalesCreditMemo."External Document No.";
-                        "Salesperson Name" := SalespersonPurchaser.Name;    
+                        //"Salesperson Name" := SalespersonPurchaser.Name;
+                        "Salesperson Name" := SalesPersonName;    
                     end else
                     begin
                         SalesCreditMemo.Reset;
@@ -126,8 +139,11 @@ report 58003 BatchUpdateItemLedgerEntry
                             begin 
                                 SalespersonPurchaser.Reset;
                                 if SalespersonPurchaser.Get("Salesperson Code") then
-                                    "Salesperson Name" := SalespersonPurchaser.Name;
-                            end;                                   
+                                    SalesPersonName := SalespersonPurchaser.Name
+                                else
+                                  SalesPersonName := '';
+                            end;
+                            "Salesperson Name" := SalesPersonName;                                   
                         end;
                     end;    
                 end;
@@ -157,6 +173,7 @@ report 58003 BatchUpdateItemLedgerEntry
     begin
         PrevDocumentType := 0;
         PrevDocumentNo := '';
+        SalesPersonName := '';
     end;
 
     var
@@ -172,4 +189,5 @@ report 58003 BatchUpdateItemLedgerEntry
         PrevDocumentNo: Code[30];
         windowsDialog: Dialog;
         timProgress: Time;
+        SalesPersonName: Text[50];
 }
